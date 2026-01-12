@@ -4,4 +4,5 @@ matplotlib
 scikit-learn
 certifi
 pymongo
+python-dotenv
 # -e .
