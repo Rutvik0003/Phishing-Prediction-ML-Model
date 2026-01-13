@@ -12,7 +12,7 @@ LOG_FILE = os.path.join(LOG_DIR, f"log_{datetime.now().strftime('%Y-%m-%d_%H-%M-
 
 # Configure logging
 logging.basicConfig(
-    level=logging.DEBUG,  # Log everything (DEBUG and above)
+    level=logging.INFO,  # Log everything (DEBUG and above)
     format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
         logging.FileHandler(LOG_FILE),  # Log to file
