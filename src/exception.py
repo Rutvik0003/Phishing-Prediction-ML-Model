@@ -16,7 +16,7 @@ def get_custom_error(error, error_details: sys):
     return error_msg
 
 
-class CustomError(Exception):
+class CustomException(Exception):
     def __init__(self, error, error_details: sys):
         self.error_message = get_custom_error(error, error_details)
         super().__init__(self.error_message)
