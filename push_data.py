@@ -53,7 +53,7 @@ class PushData:
             logging.info("Data Loaded Sucessfully")
 
         except Exception as e:
-            raise CustomException(e)
+            raise CustomException(e,sys)
 
 
 
