@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from src.entity.config_entity import DataIngestionConfig
+from src.entity.artifact_entity import DataIngestionArtifact
 from src.exception import CustomException
 from src.logger import logging
 
@@ -88,8 +89,11 @@ class DataIngestion:
             self.save_raw_data(df)
             train, test = self.split_data(df)
             self.save_train_test_split_data(train, test)
+            data_ingestion_artifact = DataIngestionArtifact()
+            data_ingestion_artifact.train_data_path = self.data_ingestion_config.train_data_path
+            data_ingestion_artifact.test_data_path = self.data_ingestion_config.test_data_path
 
-            return train, test
+            return data_ingestion_artifact
 
         except Exception as e:
             raise CustomException(e,sys)
