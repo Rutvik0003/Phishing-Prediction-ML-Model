@@ -5,6 +5,7 @@ import yaml
 
 from src.exception import CustomException
 from src.logger import logging
+from typing import Dict
 
 def read_yaml(filepath: str) -> Dict:
     try:

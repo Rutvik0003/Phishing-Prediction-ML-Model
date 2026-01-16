@@ -21,6 +21,7 @@ COLLECTION_NAME: str = "phishing_collection"
 
 #Validation Constants
 
+DATA_VALIDATION_REPORT = 'report.yaml'
 DATA_VALIDATION_DIR = 'data_validation'
 DATA_VALIDATION_VALID_DIR = 'valid'
 DATA_VALIDATION_INVALID_DIR = 'invalid'

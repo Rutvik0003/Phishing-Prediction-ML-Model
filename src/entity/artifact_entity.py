@@ -7,6 +7,7 @@ class DataIngestionArtifact:
 
 @dataclass
 class DataValidationArtifact:
+    is_drift_found : bool
     train_data_validation_status : bool
     test_data_validation_status:bool
     valid_train_data_path : str
