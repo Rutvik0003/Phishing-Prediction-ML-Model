@@ -4,9 +4,9 @@ ARTIFACT_PATH: str = "artifacts"
 INGESTION_FOLDER: str = "ingestion"
 FEATURE_FOLDER: str = "feature"
 
-RAW_DATA_PATH: str = "artifacts/ingestion/raw_data.csv"
-TRAIN_DATA_PATH: str = "artifacts/ingestion/train.csv"
-TEST_DATA_PATH: str = "artifacts/ingestion/test.csv"
+RAW_DATA_PATH: str = "raw_data.csv"
+TRAIN_DATA_PATH: str = "train.csv"
+TEST_DATA_PATH: str = "test.csv"
 
 TRAIN_TEST_SPLIT_RATIO: float = 0.3
 

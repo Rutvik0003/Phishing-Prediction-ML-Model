@@ -43,7 +43,7 @@ class DataIngestion:
     def save_raw_data(self, data: pd.DataFrame):
         try:
             raw_path = self.data_ingestion_config.raw_data_path
-            artifact_path = self.data_ingestion_config.artifact_path
+            artifact_path = self.data_ingestion_config.training_config.artifact_dir_path
             os.makedirs(artifact_path, exist_ok=True)
             os.makedirs(os.path.dirname(raw_path), exist_ok=True)
 
@@ -89,9 +89,9 @@ class DataIngestion:
             self.save_raw_data(df)
             train, test = self.split_data(df)
             self.save_train_test_split_data(train, test)
-            data_ingestion_artifact = DataIngestionArtifact()
-            data_ingestion_artifact.train_data_path = self.data_ingestion_config.train_data_path
-            data_ingestion_artifact.test_data_path = self.data_ingestion_config.test_data_path
+            data_ingestion_artifact = DataIngestionArtifact(
+                self.data_ingestion_config.train_data_path,
+                self.data_ingestion_config.test_data_path)
 
             return data_ingestion_artifact
 
