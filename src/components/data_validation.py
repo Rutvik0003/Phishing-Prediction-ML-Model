@@ -100,18 +100,31 @@ class DataValidation:
             is_drift_found = self.validate_data_drift(train_data,test_data,0.05)
 
             if(train_data_validation == True):
-                valid_train_data_path = self.data_ingestion_artifact.train_data_path
+                valid_train_data_path = self.data_validation_config.valid_train_data_path
                 invalid_train_data_path = None
+                valid_dir_path = self.data_validation_config.valid_data_dir
+                os.makedirs(valid_dir_path,exist_ok=True)
+                train_data.to_csv(valid_train_data_path)
+
             else:
                 valid_train_data_path = None
-                invalid_train_data_path = self.data_ingestion_artifact.train_data_path
+                invalid_train_data_path = self.data_validation_config.invalid_train_data_path
+                invalid_dir_path = self.data_validation_config.invalid_data_dir
+                os.makedirs(invalid_dir_path,exist_ok=True)
+                train_data.to_csv(invalid_train_data_path)
 
             if(test_data_validation == True):
-                valid_test_data_path = self.data_ingestion_artifact.test_data_path
+                valid_test_data_path = self.data_validation_config.valid_test_data_path
                 invalid_test_data_path = None
+                valid_dir_path = self.data_validation_config.valid_data_dir
+                os.makedirs(valid_dir_path,exist_ok=True)
+                test_data.to_csv(valid_test_data_path)
             else:
                 valid_test_data_path = None
                 invalid_test_data_path = self.data_ingestion_artifact.test_data_path
+                invalid_dir_path = self.data_validation_config.invalid_test_data_path
+                os.makedirs(invalid_dir_path,exist_ok=True)
+                test_data.to_csv(invalid_test_data_path)
 
             data_validation_artifact = DataValidationArtifact(
                 is_drift_found  = is_drift_found,
@@ -122,6 +135,8 @@ class DataValidation:
                 valid_test_data_path = valid_test_data_path,
                 invalid_test_data_path = invalid_test_data_path
             )
+
+            print(data_validation_artifact)
             logging.info("Data Validation Completed")
             return data_validation_artifact
         except Exception as e:
