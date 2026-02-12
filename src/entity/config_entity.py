@@ -34,4 +34,10 @@ class DataValidationConfig:
         self.invalid_test_data_path = os.path.join(self.invalid_data_dir, training_pipeline_constants.DATA_VALIDATION_INVALID_TEST_DATA)
         self.data_validation_report_path = os.path.join(self.data_validation_dir, training_pipeline_constants.DATA_VALIDATION_REPORT)
 
-
+class DataTransformationConfig:
+    def __init__(self, data_validation_config : DataValidationConfig):
+        self.data_transformation_dir_path = os.path.join(os.path.dirname(data_validation_config.data_validation_dir), training_pipeline_constants.DATA_TRANSFORMATION_DIR)
+        self.train_data_arr_path = os.path.join(self.data_transformation_dir_path, training_pipeline_constants.TRAIN_ARRAY_FILE_NAME)
+        self.test_data_arr_path = os.path.join(self.data_transformation_dir_path, training_pipeline_constants.TEST_ARRAY_FILE_NAME)
+        self.preprocessing_obj_path = os.path.join(self.data_transformation_dir_path, training_pipeline_constants.PROCESSOR_OBJ_FILE_NAME)
+    

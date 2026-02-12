@@ -14,3 +14,11 @@ class DataValidationArtifact:
     invalid_train_data_path : str
     valid_test_data_path : str
     invalid_test_data_path : str
+
+@dataclass
+class DataTransformationArtifact:
+    train_data_arr_path : str
+    test_data_arr_path : str
+    preprocessing_obj_path : str
+
+

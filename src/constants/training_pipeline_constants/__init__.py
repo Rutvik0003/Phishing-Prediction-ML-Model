@@ -1,4 +1,5 @@
 import os
+import numpy as np
 
 PIPELINE_NAME: str = "PhishingPredictionTrainingPipeline"
 ARTIFACT_PATH: str = "artifacts"
@@ -29,6 +30,20 @@ DATA_VALIDATION_VALID_TRAIN_DATA = 'valid_train_data'
 DATA_VALIDATION_VALID_TEST_DATA = 'valid_test_data'
 DATA_VALIDATION_INVALID_TRAIN_DATA = 'invalid_train_data'
 DATA_VALIDATION_INVALID_TEST_DATA = 'invalid_test_data'
+
+
+##Data Transformation
+
+DATA_TRANSFORMATION_DIR = 'data_transformation'
+TRAIN_ARRAY_FILE_NAME = 'train_data_array.npy'
+TEST_ARRAY_FILE_NAME = 'test_data_array.npy'
+PROCESSOR_OBJ_FILE_NAME = 'preprocessor.pkl'
+
+DATA_IMPUTATION_PARAMETERS : dict = {
+    'missing_values': np.nan,
+    'n_neighbors' : 5,
+    'weights' : 'uniform'
+}
 
 
 

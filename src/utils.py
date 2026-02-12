@@ -3,6 +3,9 @@ import sys
 import dill
 import yaml
 
+import numpy as np
+import pickle
+
 from src.exception import CustomException
 from src.logger import logging
 from typing import Dict
@@ -27,3 +30,14 @@ def write_yaml(filepath: str, data: Dict) -> None:
 
     except Exception as e:
         raise CustomException(e, sys)
+    
+def save_numpy_obj(obj, file_path):
+
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    np.save(file_path, obj)
+
+
+def save_pickle_obj(obj, file_path):
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, 'wb') as f:
+        pickle.dump(obj, f, protocol=pickle.HIGHEST_PROTOCOL)
