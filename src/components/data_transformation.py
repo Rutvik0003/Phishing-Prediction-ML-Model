@@ -103,6 +103,8 @@ class DataTransformation:
 
             data_transformation_artifact = self.create_data_transformation_artifact()
             print(data_transformation_artifact)
+
+            return data_transformation_artifact
         
         except Exception as e:
             raise CustomException(e,sys)

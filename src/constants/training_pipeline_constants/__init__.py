@@ -45,5 +45,10 @@ DATA_IMPUTATION_PARAMETERS : dict = {
     'weights' : 'uniform'
 }
 
+##Model Trainer
+
+MODEL_TRAINING_DIR = 'model_trainer'
+TRAINED_MODEL_NAME = 'trained_model.pkl'
+
 
 

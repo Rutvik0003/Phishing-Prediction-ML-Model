@@ -21,4 +21,14 @@ class DataTransformationArtifact:
     test_data_arr_path : str
     preprocessing_obj_path : str
 
+@dataclass
+class ClassificationMatricArtifact:
+    accuracy :float
+    precision:float
+    recall : float
 
+@dataclass
+class ModelTrainerArtifact:
+    trained_model_path : str
+    train_classification_matric : ClassificationMatricArtifact
+    test_classification_matric :ClassificationMatricArtifact

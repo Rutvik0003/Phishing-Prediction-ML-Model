@@ -41,3 +41,9 @@ class DataTransformationConfig:
         self.test_data_arr_path = os.path.join(self.data_transformation_dir_path, training_pipeline_constants.TEST_ARRAY_FILE_NAME)
         self.preprocessing_obj_path = os.path.join(self.data_transformation_dir_path, training_pipeline_constants.PROCESSOR_OBJ_FILE_NAME)
     
+class ModelTrainerConfig:
+    def __init__(self,training_config : TrainingConfig):
+        self.model_trainer_dir_path = os.path.join(training_config.artifact_dir_path, training_pipeline_constants.MODEL_TRAINING_DIR)
+        self.trained_model_path = os.path.join(self.model_trainer_dir_path, training_pipeline_constants.TRAINED_MODEL_NAME)
+        
+        
